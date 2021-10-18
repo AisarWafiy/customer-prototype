@@ -1,12 +1,21 @@
 import React from "react";
-import { BrowserRouter as Router } from "react-router-dom";
+import { BrowserRouter as Router, Switch, useRouteMatch  } from "react-router-dom";
 import logo from "../../logo.svg";
 import { Counter } from "../../features/counter/Counter";
 import "./App.css";
 import Routes from "../router/Routes";
+import PrivateRoutes from "../router/PrivateRoutes";
+import RouteContext from "../router/RouteContext";
+import routes from "../router/AllRoutes";
+import { ThemeProvider } from '@material-ui/core'
+import { theme } from "../../assets/theme/theme";
+import Layout from "../../components/layout/Layout";
 
 function App() {
+
+
   return (
+
     // <div className="App">
     //   <header className="App-header">
     //     <img src={logo} className="App-logo" alt="logo" />
@@ -56,9 +65,15 @@ function App() {
     // </div>
 
     <>
+    <RouteContext.Provider value={routes}>
+      <ThemeProvider theme={theme}>
       <Router>
+        <Layout>
         <Routes />
+        </Layout>
       </Router>
+      </ThemeProvider>
+      </RouteContext.Provider>
     </>
   );
 }

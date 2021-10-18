@@ -1,15 +1,15 @@
 import React from "react";
 import { Redirect, Route, useLocation } from "react-router";
-import { getToken } from "../Utils/Common";
+import { getToken } from "../../common/utils/Authentication";
 
-const PrivateRoutes = ({ component: Component, ...rest }) => {
+const PrivateRoutes = ({ children, ...rest }) => {
   let location = useLocation();
   return (
     <Route
       {...rest}
       render={(props) => {
         return getToken() ? (
-          <Component {...props} />
+         children
         ) : (
           <Redirect to={{ pathname: "/login", state: { from: location } }} />
         );
