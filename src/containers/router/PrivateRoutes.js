@@ -8,8 +8,8 @@ const PrivateRoutes = ({ children, ...rest }) => {
     <Route
       {...rest}
       render={(props) => {
-        return getToken() ? (
-         children
+        return !getToken() ? (
+          children
         ) : (
           <Redirect to={{ pathname: "/login", state: { from: location } }} />
         );
