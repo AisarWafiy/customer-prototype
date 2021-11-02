@@ -1,51 +1,73 @@
-
 .footer {
-    background-color: #060b71;
-    color: #ffff;
-    height: 60px;
-    width: 100%;
+  background-color: #060b71;
+  color: #ffff;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0),
+    0 1px 10px 2px rgba(0, 0, 0, 0.05), 0 0px 5px 0 rgba(0, 0, 0, 0.1);
+  @media screen and (max-width: 599px) {
     position: fixed;
     bottom: 0;
     right: 0;
+    height: 110px;
     display: flex;
-    align-items: center;
-    box-shadow: 0 3px 1px -2px rgba(0, 0, 0, 0),
-      0 1px 10px 2px rgba(0, 0, 0, 0.05), 0 0px 5px 0 rgba(0, 0, 0, 0.1);
-    @media screen and (max-width: 599px) {
-      position: fixed;
-      bottom: 0;
-      right: 0;
-    }
+    flex-direction: column;
+    padding: 0px 16px;
+    width: fit-content;
+    justify-content: space-around;
+    align-items: flex-start;
+  }
 
-.footer-text{
+  .footer-text {
     color: "#ffff";
-padding-left: 10px;
-padding-right: 10px;
-}
+    // padding-left: 10px;
+    // padding-right: 10px;
+    text-align: left;
+  }
 
-.footer-copyright{
+  .footer-copyright {
     justify-content: flex-start;
     color: "#ffff";
     font-size: 12px;
-    padding-left: 8px;
-    padding-right: 8px;
+    padding: 8px 24px;
+    // padding-left: 8px;
+    // padding-right: 8px;
     // flex: 1 1;
     flex-grow: 1;
     flex-wrap: nowrap;
-}
+  }
+  @media screen and (max-width: 599px) {
+    .footer-copyright {
+      justify-content: flex-start;
+      flex-grow: unset;
+      padding: 8px 8px;
+    }
+  }
 
-.footer-help{
+  .footer-help {
     justify-content: flex-end;
     color: "#ffff";
     font-size: 12px;
-    padding-left: 8px;
-    padding-right: 8px;
+    // padding-left: 8px;
+    // padding-right: 8px;
+    padding: 8px 24px;
     flex-grow: 0;
-}
+  }
 
-.footer-separator{
+  @media screen and (max-width: 599px) {
+    .footer-help {
+      justify-content: flex-start;
+      padding: 8px 8px;
+    }
+  }
+
+  .footer-separator {
     color: rgb(179, 12, 12);
     font-size: 14px;
+  }
 }
-}
-
